@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+
+@layer components {
+
+@keyframes fly-in-left {
+        0% {
+            transform: translateX(120%);
+        }
+
+        75% {
+            transform: translateX(-10%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes fly-in-right {
+        0% {
+            transform: translateX(-120%);
+        }
+
+        75% {
+            transform: translateX(10%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+    
+
+    @keyframes fly-in-down {
+        0% {
+            filter: opacity(0);
+            transform: translateY(-120% );
+        }
+
+        75% {
+            transform: translateY(10% );
+        }
+
+        100% {
+            filter: opacity(1);
+            transform: translateY(0% );
+        }
+    }
+    
+
+    @keyframes fly-in-up {
+        0% {
+            filter: opacity(0);
+            transform: translateY(120% );
+        }
+
+        75% {
+            transform: translateY(-10% );
+        }
+
+        100% {
+            filter: opacity(1);
+            transform: translateY(0% );
+        }
+    }
+    
+    [data-position$="-right"] .notification {
+        animation: ease-in-out fly-in-left 0.25s;
+    }
+    
+    [data-position$="-left"] .notification {
+        animation: ease-in-out fly-in-right 0.25s;
+    }
+    
+    [data-position$="-center"] .notification {
+        animation: ease-in-out fly-in-down 0.25s;
+    }
+    
+    [data-position="bottom-center"] .notification {
+        animation: ease-in-out fly-in-up 0.25s;
+    }
+
+    [data-position="top-right"] {
+        @apply top-0 right-0 flex-col;
+    }
+
+    [data-position="top-left"] {
+        @apply top-0 left-0 flex-col;
+    }
+
+    [data-position="top-center"] {
+        @apply top-0 left-1/2 flex-col -translate-x-1/2;
+    }
+
+    [data-position="bottom-center"] {
+        @apply bottom-0 left-1/2 -translate-x-1/2 flex-col;
+    }
+
+    [data-position="center"] {
+        @apply bottom-1/2 left-1/2 flex-col -translate-x-1/2;
+    }
+
+    [data-position="bottom-right"] {
+        @apply bottom-0 right-0 flex-col;
+    }
+
+    [data-position="bottom-left"] {
+        @apply bottom-0 left-0 flex-col;
+    }
+}
